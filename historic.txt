@@ -1,0 +1,29 @@
+
+npm init -y inicialitzar package.json
+instalam a nivell global de la maquina 
+ nodemon per compilar cada vegada que guardam
+ typescript llenguatge alternatiu per fer us de tsc 
+
+
+>npm install -g nodemon
+  crea un servidor d'escolta 
+>npm install -g typescript
+
+
+inicialitzam el projecte amb typescript
+>tsc -- init /// crea el fitxer tsconfig.json
+
+ara mateix per compilar tsc -> crea directori dist
+per executar >node index.json
+
+
+sistema:
+  a un terminal >nodemon dist/index.js
+  a un altre terminal >tsc --watch
+
+
+  instalacions dins el projecte
+     cors perquè backend i frontend estan a ports diferents
+     sequelize es una llibreria orm per fer les connexions a bases de dades
+     
+  >npm i express dotenv cors sequelize mysql2

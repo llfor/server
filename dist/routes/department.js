@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const department_1 = require("../controlers/department");
+//import validateToken from './validate-token';
+const router = (0, express_1.Router)();
+//router.get('/',validateToken, getDepartments);
+router.get('/', department_1.getDeparments);
+//router.get('/:id', validateToken, getDepartment);
+router.get('/:id', department_1.getDepartment);
+//router.delete('/:id', validateToken, deleteSubject);
+//router.post('/', validateToken, postSubject);
+//router.put('/:id', validateToken, updateSubject);
+exports.default = router;
