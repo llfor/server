@@ -51,7 +51,8 @@ class Server{
     }
     async dbConnect(){
         try{
-            await Product.sync();
+            await Product.sync({alter: true});
+            
             //await User.sync();
             //await Subject.sync({alter: true});
             //await Department.sync({alter: true});

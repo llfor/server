@@ -51,7 +51,7 @@ class Server {
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield product_2.Product.sync();
+                yield product_2.Product.sync({ alter: true });
                 //await User.sync();
                 //await Subject.sync({alter: true});
                 //await Department.sync({alter: true});
