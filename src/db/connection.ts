@@ -13,7 +13,7 @@ import {
 const sequelize = new Sequelize(MYSQLDATABASE, MYSQLUSER, MYSQLPASSWORD, {
     host: MYSQLHOST,
     dialect : 'mysql',
-    //port: MYSQLPORT,
+    port: 3306,
 });
 
 
