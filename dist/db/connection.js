@@ -5,7 +5,7 @@ const config_js_1 = require("../config.js");
 const sequelize = new sequelize_1.Sequelize(config_js_1.MYSQLDATABASE, config_js_1.MYSQLUSER, config_js_1.MYSQLPASSWORD, {
     host: config_js_1.MYSQLHOST,
     dialect: 'mysql',
-    port: 3306,
+    port: 52043,
 });
 /*
 const sequelize = new Sequelize('rrhh', 'llforcada', 'admin123', {
