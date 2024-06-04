@@ -3,8 +3,8 @@ import {config} from 'dotenv'
 config()
 
 //export const PORT = process.env.PORT || 3000
-export const DB_USER = process.env.DB_USER || 'llforcada'
-export const DB_PASSWORD = process.env.DB_PASSWORD || 'admin123'
-export const DB_DATABASE = process.env.DB_DATABASE || 'companydb'
-export const DB_PORT = process.env.DB_PORT || 3000
-export const DB_HOST = process.env.DB_HOST || 'localhost'
+export const MYSQLUSER = process.env.MYSQLUSER || 'llforcada'
+export const MYSQLPASSWORD = process.env.MYSQLPASSWORD || 'admin123'
+export const MYSQLDATABASE = process.env.MYSQLDATABASE || 'companydb'
+export const MYSQLPORT = process.env.MYSQLPORT || 3000
+export const MYSQLHOST = process.env.MYSQLHOST || 'localhost'
