@@ -57,8 +57,8 @@ class Server {
             try {
                 yield product_2.Product.sync({ alter: true });
                 //await User.sync();
-                yield subject_2.Subject.sync({ alter: true });
                 yield department_2.Department.sync({ alter: true });
+                yield subject_2.Subject.sync({ alter: true });
                 //await Subject.sync();
                 //await Department.sync();
             }
@@ -69,6 +69,4 @@ class Server {
         });
     }
 }
-//export const DB_USER = process.env.DB_USER;
-//console.log(process.env.PORT + ' hola');
 exports.default = Server;

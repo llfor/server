@@ -52,10 +52,9 @@ class Server{
     async dbConnect(){
         try{
             await Product.sync({alter: true});
-            
             //await User.sync();
-            await Subject.sync({alter: true});
             await Department.sync({alter: true});
+            await Subject.sync({alter: true});
             //await Subject.sync();
             //await Department.sync();
 
@@ -66,6 +65,4 @@ class Server{
 }
 
 
-//export const DB_USER = process.env.DB_USER;
-//console.log(process.env.PORT + ' hola');
 export default Server;
