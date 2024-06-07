@@ -1,4 +1,9 @@
+07/06/2024 - pendent arreglar el tema de la varibale d'entorn del port. L'agafa com un string i ha de ser un enter
 
+
+
+
+//// procediment d'arrencada
 npm init -y inicialitzar package.json
 instalam a nivell global de la maquina 
  nodemon per compilar cada vegada que guardam

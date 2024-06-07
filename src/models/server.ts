@@ -54,8 +54,8 @@ class Server{
             await Product.sync({alter: true});
             
             //await User.sync();
-            //await Subject.sync({alter: true});
-            //await Department.sync({alter: true});
+            await Subject.sync({alter: true});
+            await Department.sync({alter: true});
             //await Subject.sync();
             //await Department.sync();
 

@@ -5,17 +5,11 @@ const config_js_1 = require("../config.js");
 const sequelize = new sequelize_1.Sequelize(config_js_1.MYSQLDATABASE, config_js_1.MYSQLUSER, config_js_1.MYSQLPASSWORD, {
     host: config_js_1.MYSQLHOST,
     dialect: 'mysql',
-    port: 52043,
+    port: config_js_1.MYSQLPORT,
 });
 /*
 const sequelize = new Sequelize('rrhh', 'llforcada', 'admin123', {
     host: 'localhost',
-    dialect : 'mysql',
-});
-*/
-/*
-const sequelize = new Sequelize('u222026052_pescola', 'u222026052_pescola', 'CS6$t8cThX0;', {
-    host: 'llfor-develop.com',
     dialect : 'mysql',
 });
 */

@@ -16,6 +16,8 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const product_1 = __importDefault(require("../routes/product"));
 const product_2 = require("./product");
+const subject_1 = require("./subject");
+const department_1 = require("./department");
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -53,8 +55,8 @@ class Server {
             try {
                 yield product_2.Product.sync({ alter: true });
                 //await User.sync();
-                //await Subject.sync({alter: true});
-                //await Department.sync({alter: true});
+                yield subject_1.Subject.sync({ alter: true });
+                yield department_1.Department.sync({ alter: true });
                 //await Subject.sync();
                 //await Department.sync();
             }
