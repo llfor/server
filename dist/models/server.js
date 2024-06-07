@@ -15,9 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const product_1 = __importDefault(require("../routes/product"));
+const subject_1 = __importDefault(require("../routes/subject"));
+const department_1 = __importDefault(require("../routes/department"));
 const product_2 = require("./product");
-const subject_1 = require("./subject");
-const department_1 = require("./department");
+const subject_2 = require("./subject");
+const department_2 = require("./department");
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -36,8 +38,8 @@ class Server {
     routes() {
         this.app.use('/api/products', product_1.default);
         //this.app.use('/api/users',routesUser);
-        //this.app.use('/api/subjects', routesSubject);
-        //this.app.use('/api/departments', routesDepartment);
+        this.app.use('/api/subjects', subject_1.default);
+        this.app.use('/api/departments', department_1.default);
         this.app.get('/', (req, res) => {
             res.json({
                 msg: 'API Working - llfor'
@@ -55,8 +57,8 @@ class Server {
             try {
                 yield product_2.Product.sync({ alter: true });
                 //await User.sync();
-                yield subject_1.Subject.sync({ alter: true });
-                yield department_1.Department.sync({ alter: true });
+                yield subject_2.Subject.sync({ alter: true });
+                yield department_2.Department.sync({ alter: true });
                 //await Subject.sync();
                 //await Department.sync();
             }

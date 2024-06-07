@@ -32,8 +32,8 @@ class Server{
     routes(){
         this.app.use('/api/products',routesProduct);
         //this.app.use('/api/users',routesUser);
-        //this.app.use('/api/subjects', routesSubject);
-        //this.app.use('/api/departments', routesDepartment);
+        this.app.use('/api/subjects', routesSubject);
+        this.app.use('/api/departments', routesDepartment);
         this.app.get('/', (req: Request, res: Response)=>{
             res.json({
                 msg: 'API Working - llfor'
