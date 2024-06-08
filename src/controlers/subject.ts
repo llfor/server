@@ -88,5 +88,4 @@ export const updateSubject =  async (req: Request, res: Response) => {
         
     }
 
-
 }

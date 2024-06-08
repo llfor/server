@@ -9,8 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDepartment = exports.getDeparments = void 0;
-//import { Subject } from "../models/subject";
+exports.updateDepartment = exports.postDepartment = exports.deleteDepartment = exports.getDepartment = exports.getDeparments = void 0;
 const department_1 = require("../models/department");
 const getDeparments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const listDepartments = yield department_1.Department.findAll({
@@ -32,66 +31,60 @@ const getDepartment = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.getDepartment = getDepartment;
-/*
-export const deleteSubject =  async (req: Request, res: Response) => {
-    const {id} = req.params;
-    const subject = await Subject.findByPk(id);
-    if(!subject){
+const deleteDepartment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const department = yield department_1.Department.findByPk(id);
+    if (!department) {
         res.status(404).json({
             msg: `No existeix un producte amb el codi ${id}`
         });
-    }else{
-        await subject.destroy();
+    }
+    else {
+        yield department.destroy();
         res.json({
             msg: 'Registre eliminat amb èxit'
-        })
-        
+        });
     }
-}
-export const postSubject =  async (req: Request, res: Response) => {
-    const {body} = req;
+});
+exports.deleteDepartment = deleteDepartment;
+const postDepartment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { body } = req;
     try {
-        await Subject.create(body);
+        yield department_1.Department.create(body);
         res.json({
             msg: 'Registre creat amb èxit'
-        })
-           
-    } catch (error) {
+        });
+    }
+    catch (error) {
         console.log(error);
         res.json({
             msg: 'Errada 10'
-        })
+        });
     }
-
-
-
-    
-}
-export const updateSubject =  async (req: Request, res: Response) => {
-    const {id} = req.params;
-    const {body} = req;
+});
+exports.postDepartment = postDepartment;
+const updateDepartment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const { body } = req;
     try {
-        const subject = await Subject.findByPk(id);
-        if(subject){
-            await subject.update(body);
+        const department = yield department_1.Department.findByPk(id);
+        if (department) {
+            yield department.update(body);
             res.json({
                 msg: 'Registre actualitzat amb èxit'
-            })
-     
-        }else{
+            });
+        }
+        else {
             res.status(404).json({
                 msg: `No existeix un producte amb el codi ${id}`
             });
         }
-           
-    } catch (error) {
+    }
+    catch (error) {
         console.log(error);
         res.json({
             msg: 'Errada 11'
-        })
-        
+        });
     }
-
-
-}
-*/ 
+});
+exports.updateDepartment = updateDepartment;
