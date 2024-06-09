@@ -3,7 +3,6 @@ import { Department } from "../models/department";
 
 export const getDeparments =  async (req: Request, res: Response) => {
     const listDepartments = await Department.findAll({
-      //  include:[{ model: Department, attributes:['name']} ]
     });
     res.json(listDepartments)
 }
@@ -59,20 +58,15 @@ export const updateDepartment =  async (req: Request, res: Response) => {
             res.json({
                 msg: 'Registre actualitzat amb èxit'
             })
-     
         }else{
             res.status(404).json({
                 msg: `No existeix un producte amb el codi ${id}`
             });        
         }
-           
     } catch (error) {
         console.log(error);
         res.json({
             msg: 'Errada 11'
         })        
-        
     }
-
-
 }

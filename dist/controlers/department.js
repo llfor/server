@@ -12,9 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateDepartment = exports.postDepartment = exports.deleteDepartment = exports.getDepartment = exports.getDeparments = void 0;
 const department_1 = require("../models/department");
 const getDeparments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const listDepartments = yield department_1.Department.findAll({
-    //  include:[{ model: Department, attributes:['name']} ]
-    });
+    const listDepartments = yield department_1.Department.findAll({});
     res.json(listDepartments);
 });
 exports.getDeparments = getDeparments;

@@ -29,7 +29,9 @@ const getSubjectsDeparments = (req, res) => __awaiter(void 0, void 0, void 0, fu
 exports.getSubjectsDeparments = getSubjectsDeparments;
 const getSubject = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const subject = yield subject_1.Subject.findByPk(id);
+    const subject = yield subject_1.Subject.findByPk(id, {
+        include: [{ model: department_1.Department, attributes: ['name'] }]
+    });
     if (subject) {
         res.json(subject);
     }

@@ -14,7 +14,8 @@ export const Department = sequelize.define('department', {
     description:{
         type: DataTypes.STRING
     }
-}, {
+}, 
+{
     timestamps: true
 }
 )

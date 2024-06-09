@@ -20,7 +20,9 @@ export const getSubjectsDeparments =async (req: Request, res: Response) => {
 
 export const getSubject =  async (req: Request, res: Response) => {
     const {id} = req.params;
-    const subject = await Subject.findByPk(id);
+    const subject = await Subject.findByPk(id,{
+        include:[{model:Department, attributes:['name']}]
+    });
     if(subject){
         res.json(subject);
     }else{
