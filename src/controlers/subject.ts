@@ -1,14 +1,18 @@
 import { Request, Response } from "express"
 import { Subject } from "../models/subject";
 import { Department } from "../models/department";
+import { User } from "../models/user";
 
 export const getSubjects =  async (req: Request, res: Response) => {
     const listSubjects = await Subject.findAll({
-        include:[{ model: Department, attributes:['name']} ]
+        include:[
+            { model: Department, attributes:['name']},
+            { model: User, attributes:['teacher_name']}
+        ]
     });
     res.json(listSubjects)
 }
-
+/*
 export const getSubjectsDeparments =async (req: Request, res: Response) => {
     const listSubjects1 = await Subject.findAll({
         include:[{ model: Department, attributes:['name']} ]
@@ -17,11 +21,27 @@ export const getSubjectsDeparments =async (req: Request, res: Response) => {
     res.json(listSubjects1);
     
 }
-
+*/
+/*
+export const getSubjectsFull =async (req: Request, res: Response) => {
+    const listSubjects1 = await Subject.findAll({
+        include:[
+            { model: Department, attributes:['name']},
+            { model: User, attributes:['teacher_name']}
+        ]
+    });
+    //console.log('hola');
+    res.json(listSubjects1);
+    
+}
+*/
 export const getSubject =  async (req: Request, res: Response) => {
     const {id} = req.params;
     const subject = await Subject.findByPk(id,{
-        include:[{model:Department, attributes:['name']}]
+        include:[
+            {model:Department, attributes:['name']},
+            {model: User, attributes:['teacher_name']}
+        ]
     });
     if(subject){
         res.json(subject);

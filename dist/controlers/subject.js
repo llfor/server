@@ -9,28 +9,50 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateSubject = exports.postSubject = exports.deleteSubject = exports.getSubject = exports.getSubjectsDeparments = exports.getSubjects = void 0;
+exports.updateSubject = exports.postSubject = exports.deleteSubject = exports.getSubject = exports.getSubjects = void 0;
 const subject_1 = require("../models/subject");
 const department_1 = require("../models/department");
+const user_1 = require("../models/user");
 const getSubjects = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const listSubjects = yield subject_1.Subject.findAll({
-        include: [{ model: department_1.Department, attributes: ['name'] }]
+        include: [
+            { model: department_1.Department, attributes: ['name'] },
+            { model: user_1.User, attributes: ['teacher_name'] }
+        ]
     });
     res.json(listSubjects);
 });
 exports.getSubjects = getSubjects;
-const getSubjectsDeparments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const listSubjects1 = yield subject_1.Subject.findAll({
-        include: [{ model: department_1.Department, attributes: ['name'] }]
+/*
+export const getSubjectsDeparments =async (req: Request, res: Response) => {
+    const listSubjects1 = await Subject.findAll({
+        include:[{ model: Department, attributes:['name']} ]
     });
     //console.log('hola');
     res.json(listSubjects1);
-});
-exports.getSubjectsDeparments = getSubjectsDeparments;
+    
+}
+*/
+/*
+export const getSubjectsFull =async (req: Request, res: Response) => {
+    const listSubjects1 = await Subject.findAll({
+        include:[
+            { model: Department, attributes:['name']},
+            { model: User, attributes:['teacher_name']}
+        ]
+    });
+    //console.log('hola');
+    res.json(listSubjects1);
+    
+}
+*/
 const getSubject = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const subject = yield subject_1.Subject.findByPk(id, {
-        include: [{ model: department_1.Department, attributes: ['name'] }]
+        include: [
+            { model: department_1.Department, attributes: ['name'] },
+            { model: user_1.User, attributes: ['teacher_name'] }
+        ]
     });
     if (subject) {
         res.json(subject);

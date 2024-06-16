@@ -18,6 +18,7 @@ const product_1 = __importDefault(require("../routes/product"));
 const subject_1 = __importDefault(require("../routes/subject"));
 const department_1 = __importDefault(require("../routes/department"));
 const product_2 = require("./product");
+const user_1 = require("./user");
 const subject_2 = require("./subject");
 const department_2 = require("./department");
 class Server {
@@ -56,7 +57,7 @@ class Server {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield product_2.Product.sync({ alter: true });
-                //await User.sync();
+                yield user_1.User.sync({ alter: true });
                 yield department_2.Department.sync({ alter: true });
                 yield subject_2.Subject.sync({ alter: true });
                 //await Subject.sync();

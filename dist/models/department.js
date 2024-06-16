@@ -20,7 +20,7 @@ exports.Department = connection_1.default.define('department', {
         type: sequelize_1.DataTypes.STRING
     }
 }, {
-    timestamps: true
+    timestamps: false
 });
 exports.Department.hasMany(subject_1.Subject, {
     foreignKey: 'departmentId',

@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize  from "../db/connection";
+import { Subject } from "./subject";
 
 export const User = sequelize.define('user', {
     id:{
@@ -15,5 +16,27 @@ export const User = sequelize.define('user', {
     password:{
         type: DataTypes.STRING,
         allowNull: false
+    },
+    teacher_name:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    email:{
+        type: DataTypes.STRING
     }
-});
+},
+{
+    timestamps: false
+}
+)
+
+User.hasMany (Subject ,{
+    foreignKey: 'userId',
+    sourceKey: 'id'
+})
+
+Subject.belongsTo(User, {
+    foreignKey: 'userId',
+    targetKey: 'id'
+})
+

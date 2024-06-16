@@ -5,7 +5,7 @@ const subject_1 = require("../controlers/subject");
 const router = (0, express_1.Router)();
 //router.get('/',validateToken, getSubjects);
 router.get('/', subject_1.getSubjects);
-router.get('/depts', subject_1.getSubjectsDeparments);
+//router.get('/depts', getSubjectsDeparments);
 //router.get('/:id', validateToken, getSubject);
 router.get('/:id', subject_1.getSubject);
 //router.delete('/:id', validateToken, deleteSubject);

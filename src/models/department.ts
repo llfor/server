@@ -16,7 +16,7 @@ export const Department = sequelize.define('department', {
     }
 }, 
 {
-    timestamps: true
+    timestamps: false
 }
 )
 
