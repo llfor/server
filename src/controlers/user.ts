@@ -8,6 +8,72 @@ export const getUsers =  async (req: Request, res: Response) => {
     res.json(listUsers);
 }
 
+export const getUser =  async (req: Request, res: Response) => {
+    const {id} = req.params;
+    const user = await User.findByPk(id);
+    if (user) {
+        res.json(user)
+    } else {
+        res.status(401).json({
+            msg: `No existeix un usuari amb el codi ${id}`
+        });  
+    }
+}
+
+export const deleteUser =  async (req: Request, res: Response) => {
+    const {id} = req.params;
+    const user = await User.findByPk(id);
+    if (user) {
+        await user.destroy();
+        res.json({
+            msg: 'Registre eliminat amb èxit'
+        })
+    } else {
+        res.status(401).json({
+            msg: `No existeix un usuari amb el codi ${id}`
+        });  
+    }
+}
+
+export const postUser=  async (req: Request, res: Response) => {
+    const {body} = req;
+    try {
+        await User.create(body);
+        res.json({
+            msg: 'Registre creat amb èxit'
+        })
+           
+    } catch (error) {
+        console.log(error);
+        res.json({
+            msg: 'Errada 10'
+        })        
+    }
+}
+
+export const updateUser =  async (req: Request, res: Response) => {
+    const {id} = req.params;
+    const {body} = req;
+    try {
+        const user = await User.findByPk(id);
+        if(user){
+            await user.update(body);
+            res.json({
+                msg: 'Registre actualitzat amb èxit'
+            })
+        }else{
+            res.status(404).json({
+                msg: `No existeix un usuari amb el codi ${id}`
+            });        
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({
+            msg: 'Errada 11'
+        })        
+    }
+}
+
 export const newUser = async (req: Request, res: Response) => {
     
     const {username, password}= req.body;

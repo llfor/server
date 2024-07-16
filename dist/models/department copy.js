@@ -14,8 +14,7 @@ exports.Department = connection_1.default.define('department', {
         autoIncrement: true
     },
     name: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false
+        type: sequelize_1.DataTypes.STRING
     },
     description: {
         type: sequelize_1.DataTypes.STRING

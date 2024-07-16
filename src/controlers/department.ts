@@ -2,9 +2,8 @@ import { Request, Response } from "express";
 import { Department } from "../models/department";
 
 export const getDeparments =  async (req: Request, res: Response) => {
-    const listDepartments = await Department.findAll({
-    });
-    res.json(listDepartments)
+    const listDepartments = await Department.findAll();
+    res.json(listDepartments);
 }
 
 export const getDepartment =  async (req: Request, res: Response) => {

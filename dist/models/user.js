@@ -27,7 +27,12 @@ exports.User = connection_1.default.define('user', {
         allowNull: false
     },
     email: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false
+    },
+    role: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false
     }
 }, {
     timestamps: false

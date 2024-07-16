@@ -1,34 +1,94 @@
-07/06/2024 - pendent arreglar el tema de la varibale d'entorn del port. L'agafa com un string i ha de ser un enter
+//07/06/2024 - pendent arreglar el tema de la varibale d'entorn del port. L'agafa com un string i ha de ser un enter
+
+
+/*
+
+font d'aprenentatge:  https://www.youtube.com/watch?v=INeJQ_5fwYM&t=55s
+
+///crear package.json
+>npm init -y 
+    //s'ha d'haver instal·lat al sistema node.js pel comandament npm
+
+
+// instal·lam paquets de dependencies
+
+>npm install express bcrypt cors dotenv jsonwebtoken sequelize mysql2
+  // veure que s'han instal·lat a package.json
+  // si clonam el projecte, en fer npm install s'intal·laran totes perquè estan registrades a package.json
+
+// instal·lar Typescript
+>npm install typescript --save-dev 
+  //instal·lam com una dependència de desenvolupament. Millor si volem que l'aplicació sigui autònoma...
+  //si feim npm install -g typescript, el posam al sistema i es pot fer servir des de qualsevol carpeta de terminal
+  //typescript s'executa amb >npx tsc
+
+// instal·lar nodemon 
+>npm install nodemon --save-dev
+  //és el programa que escolta els canvis del codi i els comunica al servidor
+  //també es pot instal·lar a un ordinador globalment nom install -g nodemon
+
+
+/// inicialitzam projecte
+>npx tsc --init 
+  //crea el fitxer tsconfig.json
+
+//editam tsconfig.json
+    // canviam la línia outdir per "outdir":"./dist"   // envia el codi javascript generat a la carpeta dist
+
+/// cream index.ts  i començam a programar
+
+// primera compilació
+>npx tsc (genera index.js)
+
+//primera execució
+>npx nodemon dist/index.js (nodemon aixeca el servidor i escolatales compilacions)
+
+// segona compliació ara a un terminal diferent amb watch per escoltar els canvis
+>npx tsc --watch //escola quan guardam amb crtl-s
+
+// SCRIPTS de compilació i escolta automàtica
+//package.json 
+   "scripts":{.. 
+       "dev": "nodemon dist/index.js",
+       "typescript": tsc --watch"
+     .. }
+
+// per tot això, en resum
+1 obrim servidor de bases de dades, en local o globalment a raylway
+2 a un terminal executam 
+   >npm run dev
+3 a un segon terminal executam
+   >npm run typescript (per compilar en escolta)
+
+//Localització i configuració del fitxer .ENV per a les variables d'entorm
 
 
 
+///Procediment d'arrencada si instal·lam nodemon i typescript globalment a l'ordinador
+>npm init -y inicialitzar package.json
+instalam a nivell global de la maquina:
+ 1. nodemon per compilar cada vegada que guardam
+ 2. typescript llenguatge alternatiu per fer us de tsc 
 
-//// procediment d'arrencada
-npm init -y inicialitzar package.json
-instalam a nivell global de la maquina 
- nodemon per compilar cada vegada que guardam
- typescript llenguatge alternatiu per fer us de tsc 
-
-
->npm install -g nodemon
-  crea un servidor d'escolta 
+>npm install -g nodemon //crea un servidor d'escolta 
 >npm install -g typescript
 
+Observació: també es pot instal·lar typescript com un paquet de desenvolupament: 
 
 inicialitzam el projecte amb typescript
 >tsc -- init /// crea el fitxer tsconfig.json
 
-ara mateix per compilar tsc -> crea directori dist
-per executar >node index.json
+ara mateix per compilar amb tsc crea directori dist i executam 
+>node index.json
 
+Funcionament de sistema de compilació i execució:
+  1. a un terminal >nodemon dist/index.js
+  2. a un altre terminal >tsc --watch
 
-sistema:
-  a un terminal >nodemon dist/index.js
-  a un altre terminal >tsc --watch
-
-
-  instalacions dins el projecte
-     cors perquè backend i frontend estan a ports diferents
-     sequelize es una llibreria orm per fer les connexions a bases de dades
-     
-  >npm i express dotenv cors sequelize mysql2
+Instalacions de dependències dins el projecte
+  1. cors perquè backend i frontend estan a ports diferents
+  2. sequelize es una llibreria orm per fer les connexions a bases de dades
+>npm i express dotenv cors sequelize mysql2
+  3. bcrypt jsonwebtoken
+>npm install express bcrypt cors dotenv jsonwebtoken sequelize mysql2
+*/

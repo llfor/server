@@ -67,55 +67,55 @@ export const Subject = sequelize.define('subject', {
         type: DataTypes.INTEGER
     },
     av1_temes_programats:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av1_temes_impartits:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av1_clima_grup:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av1_propostes_millora:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av2_temes_programats:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av2_temes_impartits:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av2_clima_grup:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av2_propostes_millora:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av3_temes_programats:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av3_temes_impartits:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av3_clima_grup:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     av3_propostes_millora:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     mem_tract_tic_tac:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     mem_tract_abandonament:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     mem_tract_llengua:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     mem_recursos_didactics:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     mem_aval_pract_docent:{
-        type: DataTypes.BLOB
+        type: DataTypes.STRING
     },
     rev_cap_dept:{ //revisat cap de departament
         type: DataTypes.BOOLEAN

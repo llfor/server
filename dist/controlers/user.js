@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginUser = exports.newUser = exports.getUsers = void 0;
+exports.loginUser = exports.newUser = exports.updateUser = exports.postUser = exports.deleteUser = exports.getUser = exports.getUsers = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const user_1 = require("../models/user");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
@@ -21,6 +21,76 @@ const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.json(listUsers);
 });
 exports.getUsers = getUsers;
+const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const user = yield user_1.User.findByPk(id);
+    if (user) {
+        res.json(user);
+    }
+    else {
+        res.status(401).json({
+            msg: `No existeix un usuari amb el codi ${id}`
+        });
+    }
+});
+exports.getUser = getUser;
+const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const user = yield user_1.User.findByPk(id);
+    if (user) {
+        yield user.destroy();
+        res.json({
+            msg: 'Registre eliminat amb èxit'
+        });
+    }
+    else {
+        res.status(401).json({
+            msg: `No existeix un usuari amb el codi ${id}`
+        });
+    }
+});
+exports.deleteUser = deleteUser;
+const postUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { body } = req;
+    try {
+        yield user_1.User.create(body);
+        res.json({
+            msg: 'Registre creat amb èxit'
+        });
+    }
+    catch (error) {
+        console.log(error);
+        res.json({
+            msg: 'Errada 10'
+        });
+    }
+});
+exports.postUser = postUser;
+const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const { body } = req;
+    try {
+        const user = yield user_1.User.findByPk(id);
+        if (user) {
+            yield user.update(body);
+            res.json({
+                msg: 'Registre actualitzat amb èxit'
+            });
+        }
+        else {
+            res.status(404).json({
+                msg: `No existeix un usuari amb el codi ${id}`
+            });
+        }
+    }
+    catch (error) {
+        console.log(error);
+        res.json({
+            msg: 'Errada 11'
+        });
+    }
+});
+exports.updateUser = updateUser;
 const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, password } = req.body;
     //Validam usuari a la base de dades

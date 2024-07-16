@@ -1,66 +1,69 @@
-import express, {Application, Request, Response} from 'express';
+import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import routesProduct from '../routes/product';
 import routesUser from '../routes/user';
 import routesSubject from '../routes/subject';
 import routesDepartment from '../routes/department';
+import routesTeachingModalities from '../routes/teaching_modality';
 import { Product } from './product';
 import { User } from './user';
 import { Subject } from './subject';
 import { Department } from './department';
+import { TeachingModality } from './teaching_modality';
 
-class Server{
+class Server {
     private app: Application;
     private port: string | undefined;
 
-    constructor(){
+    constructor() {
         this.app = express();
         this.port = process.env.PORT || '3001';
-        //console.log(process.env.PORT + ' hola1');
         this.listen();
         this.dbConnect();
         this.midlewares();
         this.routes();
-        
+
     }
-    listen(){
-        this.app.listen(this.port, ()=>{
-            console.log('Aplicació executant en el port '+this.port);
+    listen() {
+        this.app.listen(this.port, () => {
+            console.log('Aplicació executant en el port ' + this.port);
         })
     }
-    
-    routes(){
-        this.app.use('/api/products',routesProduct);
-        //this.app.use('/api/users',routesUser);
+    async dbConnect() {
+        try {
+            await Product.sync({ alter: true });
+            await User.sync({ alter: true });
+            await Department.sync({ alter: true });
+            await Subject.sync({ alter: true });
+            await TeachingModality.sync({ alter: true });
+
+            // sense alter true no es força l'estructura de la taula
+            //await Subject.sync();
+            //await Department.sync();
+
+        } catch (error) {
+            console.log('Unable to  connect to the database: ', error);
+        };
+    }
+    midlewares() {
+        // parsejam body
+        this.app.use(express.json());
+        //cors
+        this.app.use(cors());
+    }
+    routes() {
+        this.app.use('/api/products', routesProduct);
+        this.app.use('/api/users', routesUser);
         this.app.use('/api/subjects', routesSubject);
         this.app.use('/api/departments', routesDepartment);
-        this.app.get('/', (req: Request, res: Response)=>{
+        this.app.use('/api/teaching_modalities', routesTeachingModalities);
+        this.app.get('/', (req: Request, res: Response) => {
             res.json({
                 msg: 'API Working - llfor'
             })
 
         })
 
-    }
-    midlewares(){
-        // parsejam body
-        this.app.use(express.json());
-        //cors
-        this.app.use(cors());
-
-    }
-    async dbConnect(){
-        try{
-            await Product.sync({alter: true});
-            await User.sync({alter: true});
-            await Department.sync({alter: true});
-            await Subject.sync({alter: true});
-            //await Subject.sync();
-            //await Department.sync();
-
-        }catch (error){
-            console.log('Unable to  connect to the database: ', error);
-        };
     }
 }
 

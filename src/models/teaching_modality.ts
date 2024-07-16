@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize  from "../db/connection";
 import { Subject } from "./subject";
 
-export const Department = sequelize.define('department', {
+export const TeachingModality = sequelize.define('teaching_modality', {
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -14,6 +14,10 @@ export const Department = sequelize.define('department', {
     },
     description:{
         type: DataTypes.STRING
+    },
+    role:{
+        type: DataTypes.STRING,//formal, no formal, complementària
+        allowNull: false
     }
 }, 
 {
@@ -21,13 +25,13 @@ export const Department = sequelize.define('department', {
 }
 )
 
-Department.hasMany (Subject ,{
-    foreignKey: 'departmentId',
+TeachingModality.hasMany (Subject ,{
+    foreignKey: 'teaching_modalityId',
     sourceKey: 'id'
 })
 
-Subject.belongsTo(Department, {
-    foreignKey: 'departmentId',
+Subject.belongsTo(TeachingModality, {
+    foreignKey: 'teaching_modalityId',
     targetKey: 'id'
 })
 

@@ -72,55 +72,55 @@ exports.Subject = connection_1.default.define('subject', {
         type: sequelize_1.DataTypes.INTEGER
     },
     av1_temes_programats: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av1_temes_impartits: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av1_clima_grup: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av1_propostes_millora: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av2_temes_programats: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av2_temes_impartits: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av2_clima_grup: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av2_propostes_millora: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av3_temes_programats: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av3_temes_impartits: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av3_clima_grup: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     av3_propostes_millora: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     mem_tract_tic_tac: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     mem_tract_abandonament: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     mem_tract_llengua: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     mem_recursos_didactics: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     mem_aval_pract_docent: {
-        type: sequelize_1.DataTypes.BLOB
+        type: sequelize_1.DataTypes.STRING
     },
     rev_cap_dept: {
         type: sequelize_1.DataTypes.BOOLEAN
