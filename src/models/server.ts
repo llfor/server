@@ -1,11 +1,11 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
-import routesProduct from '../routes/product';
+//import routesProduct from '../routes/product';
 import routesUser from '../routes/user';
 import routesSubject from '../routes/subject';
 import routesDepartment from '../routes/department';
 import routesTeachingModalities from '../routes/teaching_modality';
-import { Product } from './product';
+//import { Product } from './product';
 import { User } from './user';
 import { Subject } from './subject';
 import { Department } from './department';
@@ -31,7 +31,7 @@ class Server {
     }
     async dbConnect() {
         try {
-            await Product.sync({ alter: true });
+            //await Product.sync({ alter: true });
             await User.sync({ alter: true });
             await Department.sync({ alter: true });
             await Subject.sync({ alter: true });
@@ -52,7 +52,7 @@ class Server {
         this.app.use(cors());
     }
     routes() {
-        this.app.use('/api/products', routesProduct);
+        //this.app.use('/api/products', routesProduct);
         this.app.use('/api/users', routesUser);
         this.app.use('/api/subjects', routesSubject);
         this.app.use('/api/departments', routesDepartment);
