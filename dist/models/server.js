@@ -44,8 +44,8 @@ class Server {
                 //await Product.sync({ alter: true });
                 yield user_2.User.sync({ alter: true });
                 yield department_2.Department.sync({ alter: true });
-                yield subject_2.Subject.sync({ alter: true });
                 yield teaching_modality_2.TeachingModality.sync({ alter: true });
+                yield subject_2.Subject.sync({ alter: true });
                 // sense alter true no es força l'estructura de la taula
                 //await Subject.sync();
                 //await Department.sync();

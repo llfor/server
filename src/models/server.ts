@@ -34,8 +34,9 @@ class Server {
             //await Product.sync({ alter: true });
             await User.sync({ alter: true });
             await Department.sync({ alter: true });
-            await Subject.sync({ alter: true });
             await TeachingModality.sync({ alter: true });
+            await Subject.sync({ alter: true });
+
 
             // sense alter true no es força l'estructura de la taula
             //await Subject.sync();
