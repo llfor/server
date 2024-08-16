@@ -15,6 +15,42 @@ export const getSubjects = async (req: Request, res: Response) => {
     });
     res.json(listSubjects)
 }
+
+export const getSubjectsfiltered = async (req: Request, res: Response) => {
+    try {
+        // Obtenir els paràmetres de filtratge de la sol·licitud
+        const { userId, teaching_modalityId } = req.query;
+
+        // Construir l'objecte de condicions (where) per filtrar
+        const conditions: any = {};
+
+        if (userId) {
+            conditions.userId = userId;
+        }
+
+        if (teaching_modalityId) {
+            conditions.teaching_modalityId = teaching_modalityId;
+        }
+
+        // Realitzar la consulta amb els filtres aplicats
+        const listSubjects = await Subject.findAll({
+            where: conditions,
+            include: [
+                { model: Department, attributes: ['name'] },
+                { model: User, attributes: ['teacher_name'] },
+                { model: TeachingModality, attributes: ['name'] }
+            ]
+        });
+
+        // Retornar la llista de subjects filtrada
+        res.json(listSubjects);
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving subjects', error });
+    }
+};
+
+
+
 export const getSubject = async (req: Request, res: Response) => {
     const { id } = req.params;
     const subject = await Subject.findByPk(id, {

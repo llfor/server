@@ -1,12 +1,13 @@
 import {Router} from 'express';
-import { getSubjects, getSubject, deleteSubject, postSubject, updateSubject } from '../controlers/subject';
+import { getSubjects, getSubject, deleteSubject, postSubject, updateSubject, getSubjectsfiltered } from '../controlers/subject';
+
 //import validateToken from './validate-token';
 
 
 const router = Router();
 
 
-router.get('/', getSubjects);
+router.get('/', getSubjectsfiltered);
 router.get('/:id', getSubject);
 router.delete('/:id', deleteSubject);
 router.post('/', postSubject);

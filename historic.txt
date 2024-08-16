@@ -60,6 +60,8 @@ font d'aprenentatge:  https://www.youtube.com/watch?v=INeJQ_5fwYM&t=55s
 3 a un segon terminal executam
    >npm run typescript (per compilar en escolta)
 
+4 http://localhost:3001/api/subjects/
+
 //Localització i configuració del fitxer .ENV per a les variables d'entorm
 
 

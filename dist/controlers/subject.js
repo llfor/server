@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateSubject = exports.postSubject = exports.deleteSubject = exports.getSubject = exports.getSubjects = void 0;
+exports.updateSubject = exports.postSubject = exports.deleteSubject = exports.getSubject = exports.getSubjectsfiltered = exports.getSubjects = void 0;
 const subject_1 = require("../models/subject");
 const department_1 = require("../models/department");
 const user_1 = require("../models/user");
@@ -25,6 +25,35 @@ const getSubjects = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     res.json(listSubjects);
 });
 exports.getSubjects = getSubjects;
+const getSubjectsfiltered = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // Obtenir els paràmetres de filtratge de la sol·licitud
+        const { userId, teaching_modalityId } = req.query;
+        // Construir l'objecte de condicions (where) per filtrar
+        const conditions = {};
+        if (userId) {
+            conditions.userId = userId;
+        }
+        if (teaching_modalityId) {
+            conditions.teaching_modalityId = teaching_modalityId;
+        }
+        // Realitzar la consulta amb els filtres aplicats
+        const listSubjects = yield subject_1.Subject.findAll({
+            where: conditions,
+            include: [
+                { model: department_1.Department, attributes: ['name'] },
+                { model: user_1.User, attributes: ['teacher_name'] },
+                { model: teaching_modality_1.TeachingModality, attributes: ['name'] }
+            ]
+        });
+        // Retornar la llista de subjects filtrada
+        res.json(listSubjects);
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Error retrieving subjects', error });
+    }
+});
+exports.getSubjectsfiltered = getSubjectsfiltered;
 const getSubject = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const subject = yield subject_1.Subject.findByPk(id, {
