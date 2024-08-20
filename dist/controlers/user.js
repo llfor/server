@@ -92,7 +92,7 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.updateUser = updateUser;
 const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { username, password } = req.body;
+    const { username, password, teacher_name, email, role } = req.body;
     //Validam usuari a la base de dades
     const user = yield user_1.User.findOne({ where: { username: username } });
     if (user) {
@@ -105,7 +105,10 @@ const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         ///guardam usuari a la base de dades
         yield user_1.User.create({
             username: username,
-            password: hashedPassword
+            password: hashedPassword,
+            teacher_name: teacher_name,
+            email: email,
+            role: role
         });
         res.json({
             msg: `Usuari ${username} creat amb èxit`

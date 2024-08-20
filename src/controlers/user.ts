@@ -76,7 +76,7 @@ export const updateUser =  async (req: Request, res: Response) => {
 
 export const newUser = async (req: Request, res: Response) => {
     
-    const {username, password}= req.body;
+    const {username, password, teacher_name, email, role}= req.body;
 
     //Validam usuari a la base de dades
     const user = await User.findOne({where: {username: username}});
@@ -91,7 +91,10 @@ export const newUser = async (req: Request, res: Response) => {
         ///guardam usuari a la base de dades
         await User.create({
             username: username,
-            password: hashedPassword
+            password: hashedPassword,
+            teacher_name: teacher_name,
+            email: email,
+            role: role
         });
         res.json({
         msg: `Usuari ${username} creat amb èxit`
@@ -102,10 +105,6 @@ export const newUser = async (req: Request, res: Response) => {
             error
         })
     }
-
-
-   
-
 }
 
 
