@@ -6,10 +6,8 @@ import { deleteUser, getUser, getUsers, loginUser, newUser, postUser, updateUser
 const router = Router();
 
 
-
-router.post('/', newUser);
 router.post('/login', loginUser);
-
+router.post('/', newUser);
 router.get('/', getUsers);
 router.get('/:id', getUser);
 router.delete('/:id', deleteUser);
