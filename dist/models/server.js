@@ -60,7 +60,12 @@ class Server {
         // parsejam body
         this.app.use(express_1.default.json());
         //cors
-        this.app.use((0, cors_1.default)());
+        this.app.use((0, cors_1.default)({
+            origin: 'http://localhost:4200', // Domini que vols permetre
+            methods: 'GET,POST,PUT,DELETE,OPTIONS',
+            allowedHeaders: 'Content-Type,Authorization',
+            credentials: true
+        }));
     }
     routes() {
         //this.app.use('/api/products', routesProduct);
