@@ -1,22 +1,16 @@
 import {Router} from 'express';
 import { deleteTeachingModality, getTeachingModalities, getTeachingModality, postTeachingModality, updateTeachingModality } from '../controlers/teaching_modality';
-//import validateToken from './validate-token';
+import validateToken from './validate-token';
 
 
 const router = Router();
 
 
-router.get('/', getTeachingModalities);
-router.get('/:id', getTeachingModality);
-router.delete('/:id', deleteTeachingModality);
-router.post('/', postTeachingModality);
-router.put('/:id', updateTeachingModality);
-/*
-router.get('/',validateToken, getDepartments);
-router.get('/:id', validateToken, getDepartment);
-router.delete('/:id', validateToken, deleteDepartment);
-router.post('/', validateToken, postDepartment);
-router.put('/:id', validateToken, updateDepartment);
-*/
+router.get('/', validateToken, getTeachingModalities);
+router.get('/:id', validateToken, getTeachingModality);
+router.delete('/:id',validateToken, deleteTeachingModality);
+router.post('/', validateToken, postTeachingModality);
+router.put('/:id',validateToken, updateTeachingModality);
+
 
 export default router;

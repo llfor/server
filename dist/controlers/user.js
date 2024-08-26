@@ -141,8 +141,10 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // console.log(passwordValid);
     // Generam el Token
     const token = jsonwebtoken_1.default.sign({
-        username: username
-    }, process.env.SECRET_KEY || 'alfa');
-    res.json(token);
+        id: user.id,
+        username: user.username,
+        role: user.role
+    }, process.env.SECRET_KEY || 'alfa', { expiresIn: '1h' });
+    res.json(Object.assign({ token }, user.toJSON()));
 });
 exports.loginUser = loginUser;

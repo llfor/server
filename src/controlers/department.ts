@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Department } from "../models/department";
 
-export const getDeparments =  async (req: Request, res: Response) => {
+export const getDepartments =  async (req: Request, res: Response) => {
     const listDepartments = await Department.findAll();
     res.json(listDepartments);
 }

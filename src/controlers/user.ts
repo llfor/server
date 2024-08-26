@@ -130,11 +130,15 @@ export const loginUser = async(req: Request, res: Response) => {
         // console.log(passwordValid);
 
     // Generam el Token
-    const token = jwt.sign({
-        username: username
-    }, process.env.SECRET_KEY || 'alfa' )
+    const token = jwt.sign(
+        {
+        id: user.id,
+        username: user.username,
+        role: user.role}
+        , process.env.SECRET_KEY || 'alfa',
+        {expiresIn: '1h'} )
 
-    res.json(token);
+    res.json({token, ...user.toJSON()});
 
 
 }

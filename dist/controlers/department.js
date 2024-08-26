@@ -9,13 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateDepartment = exports.postDepartment = exports.deleteDepartment = exports.getDepartment = exports.getDeparments = void 0;
+exports.updateDepartment = exports.postDepartment = exports.deleteDepartment = exports.getDepartment = exports.getDepartments = void 0;
 const department_1 = require("../models/department");
-const getDeparments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getDepartments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const listDepartments = yield department_1.Department.findAll();
     res.json(listDepartments);
 });
-exports.getDeparments = getDeparments;
+exports.getDepartments = getDepartments;
 const getDepartment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const department = yield department_1.Department.findByPk(id);

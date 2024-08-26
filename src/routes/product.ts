@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import { getProducts } from '../controlers/product';
-import validateToken from './validate-token';
+//import validateToken from './validate-token';
 
 
 const router = Router();
