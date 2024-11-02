@@ -28,7 +28,7 @@ exports.getSubjects = getSubjects;
 const getSubjectsfiltered = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Obtenir els paràmetres de filtratge de la sol·licitud
-        const { userId, teaching_modalityId } = req.query;
+        const { userId, teaching_modalityId, academic_year, class_town, departmentId, contract } = req.query;
         // Construir l'objecte de condicions (where) per filtrar
         const conditions = {};
         if (userId) {
@@ -36,6 +36,18 @@ const getSubjectsfiltered = (req, res) => __awaiter(void 0, void 0, void 0, func
         }
         if (teaching_modalityId) {
             conditions.teaching_modalityId = teaching_modalityId;
+        }
+        if (academic_year) {
+            conditions.academic_year = academic_year;
+        }
+        if (class_town) {
+            conditions.class_town = class_town;
+        }
+        if (departmentId) {
+            conditions.departmentId = departmentId;
+        }
+        if (contract) {
+            conditions.contract = contract;
         }
         // Realitzar la consulta amb els filtres aplicats
         const listSubjects = yield subject_1.Subject.findAll({

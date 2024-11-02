@@ -19,7 +19,7 @@ export const getSubjects = async (req: Request, res: Response) => {
 export const getSubjectsfiltered = async (req: Request, res: Response) => {
     try {
         // Obtenir els paràmetres de filtratge de la sol·licitud
-        const { userId, teaching_modalityId } = req.query;
+        const { userId, teaching_modalityId, academic_year, class_town, departmentId, contract } = req.query;
 
         // Construir l'objecte de condicions (where) per filtrar
         const conditions: any = {};
@@ -27,10 +27,23 @@ export const getSubjectsfiltered = async (req: Request, res: Response) => {
         if (userId) {
             conditions.userId = userId;
         }
-
         if (teaching_modalityId) {
             conditions.teaching_modalityId = teaching_modalityId;
         }
+        if (academic_year) {
+            conditions.academic_year = academic_year;
+        }
+        if (class_town) {
+            conditions.class_town = class_town;
+        }
+        if (departmentId) {
+            conditions.departmentId = departmentId;
+        }
+        if (contract) {
+            conditions.contract = contract;
+        }
+
+
 
         // Realitzar la consulta amb els filtres aplicats
         const listSubjects = await Subject.findAll({
