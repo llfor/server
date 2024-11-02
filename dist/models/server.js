@@ -42,10 +42,10 @@ class Server {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 //await Product.sync({ alter: true });
-                yield user_2.User.sync({ alter: true });
-                yield department_2.Department.sync({ alter: true });
-                yield teaching_modality_2.TeachingModality.sync({ alter: true });
-                yield subject_2.Subject.sync({ alter: true });
+                yield user_2.User.sync({ alter: false });
+                yield department_2.Department.sync({ alter: false });
+                yield teaching_modality_2.TeachingModality.sync({ alter: false });
+                yield subject_2.Subject.sync({ alter: false });
                 // sense alter true no es força l'estructura de la taula
                 //await Subject.sync();
                 //await Department.sync();

@@ -32,10 +32,10 @@ class Server {
     async dbConnect() {
         try {
             //await Product.sync({ alter: true });
-            await User.sync({ alter: true });
-            await Department.sync({ alter: true });
-            await TeachingModality.sync({ alter: true });
-            await Subject.sync({ alter: true });
+            await User.sync({ alter: false });
+            await Department.sync({ alter: false });
+            await TeachingModality.sync({ alter: false });
+            await Subject.sync({ alter: false });
 
 
             // sense alter true no es força l'estructura de la taula

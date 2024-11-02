@@ -72,64 +72,52 @@ exports.Subject = connection_1.default.define('subject', {
         type: sequelize_1.DataTypes.INTEGER
     },
     av1_temes_programats: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     av1_temes_impartits: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     av1_clima_grup: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     av1_propostes_millora: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     av2_temes_programats: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     av2_temes_impartits: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     av2_clima_grup: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     av2_propostes_millora: {
-        type: sequelize_1.DataTypes.STRING
-    },
-    av3_temes_programats: {
-        type: sequelize_1.DataTypes.STRING
-    },
-    av3_temes_impartits: {
-        type: sequelize_1.DataTypes.STRING
-    },
-    av3_clima_grup: {
-        type: sequelize_1.DataTypes.STRING
-    },
-    av3_propostes_millora: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     mem_tract_tic_tac: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     mem_tract_abandonament: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     mem_tract_llengua: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     mem_recursos_didactics: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     mem_aval_pract_docent: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     rev_cap_dept: {
         type: sequelize_1.DataTypes.BOOLEAN
     },
     rev_resultat: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     },
     rev_observ_mem_curric: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.TEXT
     }
 }, {
     timestamps: false
