@@ -52,7 +52,7 @@ class Server {
         //cors
         this.app.use(cors(
             {
-                origin: 'http://localhost:4200', // Domini que vols permetre
+                origin: ['https://app-class-tracking.llfor-develop.com','http://localhost:4200'], // Domini que vols permetre
                 methods: 'GET,POST,PUT,DELETE,OPTIONS',
                 allowedHeaders: 'Content-Type,Authorization',
                 credentials: true

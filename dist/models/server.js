@@ -61,7 +61,7 @@ class Server {
         this.app.use(express_1.default.json());
         //cors
         this.app.use((0, cors_1.default)({
-            origin: 'http://localhost:4200', // Domini que vols permetre
+            origin: ['https://app-class-tracking.llfor-develop.com', 'http://localhost:4200'], // Domini que vols permetre
             methods: 'GET,POST,PUT,DELETE,OPTIONS',
             allowedHeaders: 'Content-Type,Authorization',
             credentials: true
