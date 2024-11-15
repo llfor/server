@@ -1,6 +1,7 @@
 import {Router} from 'express';
 import { deleteDepartment, getDepartments, getDepartment, postDepartment, updateDepartment } from '../controlers/department';
-import validateToken from './validate-token';
+//import validateToken from './validate-token';
+import validateFirebaseToken from './validate-firebase-token';
 
 
 const router = Router();
@@ -12,10 +13,10 @@ router.delete('/:id', deleteDepartment);
 router.post('/', postDepartment);
 router.put('/:id', updateDepartment);
 */
-router.get('/',validateToken, getDepartments);
-router.get('/:id', validateToken, getDepartment);
-router.delete('/:id', validateToken, deleteDepartment);
-router.post('/', validateToken, postDepartment);
-router.put('/:id', validateToken, updateDepartment);
+router.get('/',validateFirebaseToken, getDepartments);
+router.get('/:id', validateFirebaseToken, getDepartment);
+router.delete('/:id', validateFirebaseToken, deleteDepartment);
+router.post('/', validateFirebaseToken, postDepartment);
+router.put('/:id', validateFirebaseToken, updateDepartment);
 
 export default router;

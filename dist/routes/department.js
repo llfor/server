@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const department_1 = require("../controlers/department");
-const validate_token_1 = __importDefault(require("./validate-token"));
+//import validateToken from './validate-token';
+const validate_firebase_token_1 = __importDefault(require("./validate-firebase-token"));
 const router = (0, express_1.Router)();
 /*
 router.get('/', getDeparments);
@@ -14,9 +15,9 @@ router.delete('/:id', deleteDepartment);
 router.post('/', postDepartment);
 router.put('/:id', updateDepartment);
 */
-router.get('/', validate_token_1.default, department_1.getDepartments);
-router.get('/:id', validate_token_1.default, department_1.getDepartment);
-router.delete('/:id', validate_token_1.default, department_1.deleteDepartment);
-router.post('/', validate_token_1.default, department_1.postDepartment);
-router.put('/:id', validate_token_1.default, department_1.updateDepartment);
+router.get('/', validate_firebase_token_1.default, department_1.getDepartments);
+router.get('/:id', validate_firebase_token_1.default, department_1.getDepartment);
+router.delete('/:id', validate_firebase_token_1.default, department_1.deleteDepartment);
+router.post('/', validate_firebase_token_1.default, department_1.postDepartment);
+router.put('/:id', validate_firebase_token_1.default, department_1.updateDepartment);
 exports.default = router;

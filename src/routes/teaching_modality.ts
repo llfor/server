@@ -1,16 +1,17 @@
 import {Router} from 'express';
 import { deleteTeachingModality, getTeachingModalities, getTeachingModality, postTeachingModality, updateTeachingModality } from '../controlers/teaching_modality';
-import validateToken from './validate-token';
+//import validateToken from './validate-token';
+import validateFirebaseToken from './validate-firebase-token';
 
 
 const router = Router();
 
 
-router.get('/', validateToken, getTeachingModalities);
-router.get('/:id', validateToken, getTeachingModality);
-router.delete('/:id',validateToken, deleteTeachingModality);
-router.post('/', validateToken, postTeachingModality);
-router.put('/:id',validateToken, updateTeachingModality);
+router.get('/', validateFirebaseToken, getTeachingModalities);
+router.get('/:id', validateFirebaseToken, getTeachingModality);
+router.delete('/:id', validateFirebaseToken, deleteTeachingModality);
+router.post('/', validateFirebaseToken, postTeachingModality);
+router.put('/:id', validateFirebaseToken, updateTeachingModality);
 
 
 export default router;

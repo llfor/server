@@ -1,8 +1,8 @@
 import {Router} from 'express';
-import { getSubjects, getSubject, deleteSubject, postSubject, updateSubject, getSubjectsfiltered } from '../controlers/subject';
+import { getSubject, deleteSubject, postSubject, updateSubject, getSubjectsfiltered } from '../controlers/subject';
 
-import validateToken from './validate-token';
-
+//import validateToken from './validate-token';
+import validateFirebaseToken from './validate-firebase-token';
 
 const router = Router();
 
@@ -14,11 +14,11 @@ router.post('/', postSubject);
 router.put('/:id', updateSubject);
 */
 
-router.get('/',validateToken, getSubjectsfiltered);
-router.get('/:id', validateToken, getSubject);
-router.delete('/:id', validateToken, deleteSubject);
-router.post('/', validateToken, postSubject);
-router.put('/:id', validateToken, updateSubject);
+router.get('/',validateFirebaseToken, getSubjectsfiltered);
+router.get('/:id', validateFirebaseToken, getSubject);
+router.delete('/:id', validateFirebaseToken, deleteSubject);
+router.post('/', validateFirebaseToken, postSubject);
+router.put('/:id', validateFirebaseToken, updateSubject);
 
 
 

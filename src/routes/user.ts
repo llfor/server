@@ -1,18 +1,19 @@
 import {Router} from 'express';
 import { deleteUser, getUser, getUsers, loginUser, newUser, postUser, updateUser } from '../controlers/user';
-import validateToken from './validate-token';
+//import validateToken from './validate-token';
+import validateFirebaseToken from './validate-firebase-token';
 
 
 const router = Router();
 
 
 router.post('/login', loginUser);
-router.post('/', validateToken, newUser);
-router.get('/', validateToken, getUsers);
-router.get('/:id', validateToken, getUser);
-router.delete('/:id', validateToken, deleteUser);
-router.post('/', validateToken, postUser);
-router.put('/:id',validateToken, updateUser);
+router.post('/', validateFirebaseToken, newUser);
+router.get('/', validateFirebaseToken, getUsers);
+router.get('/:id', validateFirebaseToken, getUser);
+router.delete('/:id', validateFirebaseToken, deleteUser);
+router.post('/', validateFirebaseToken, postUser);
+router.put('/:id', validateFirebaseToken, updateUser);
 
 /*
 router.get('/',validateToken, getDepartments);

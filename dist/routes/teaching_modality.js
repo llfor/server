@@ -5,11 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const teaching_modality_1 = require("../controlers/teaching_modality");
-const validate_token_1 = __importDefault(require("./validate-token"));
+//import validateToken from './validate-token';
+const validate_firebase_token_1 = __importDefault(require("./validate-firebase-token"));
 const router = (0, express_1.Router)();
-router.get('/', validate_token_1.default, teaching_modality_1.getTeachingModalities);
-router.get('/:id', validate_token_1.default, teaching_modality_1.getTeachingModality);
-router.delete('/:id', validate_token_1.default, teaching_modality_1.deleteTeachingModality);
-router.post('/', validate_token_1.default, teaching_modality_1.postTeachingModality);
-router.put('/:id', validate_token_1.default, teaching_modality_1.updateTeachingModality);
+router.get('/', validate_firebase_token_1.default, teaching_modality_1.getTeachingModalities);
+router.get('/:id', validate_firebase_token_1.default, teaching_modality_1.getTeachingModality);
+router.delete('/:id', validate_firebase_token_1.default, teaching_modality_1.deleteTeachingModality);
+router.post('/', validate_firebase_token_1.default, teaching_modality_1.postTeachingModality);
+router.put('/:id', validate_firebase_token_1.default, teaching_modality_1.updateTeachingModality);
 exports.default = router;
